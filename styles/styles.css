@@ -1,0 +1,540 @@
+@font-face{
+  font-family: "Gotham Medium";
+  src: url("../assets/fonts/gotham-medium.ttf")
+}
+@font-face{
+  font-family: "Gotham Bold";
+  src: url("../assets/fonts/gotham-bold.ttf")
+}
+@font-face{
+  font-family: "Boodoni book";
+  src: url("../assets/fonts/bodoni.ttf")
+}
+@font-face{
+  font-family: "Gotham book";
+  src: url("../assets/fonts/gotham-book.ttf")
+}
+*{
+  box-sizing:border-box;
+}
+body{
+  margin:0;
+  padding: 0;
+}
+.form__button{
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  z-index: 8;
+  transform: rotate(270deg) scaleY(1.2);
+  top: 99px;
+  right: -26px;
+  outline: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+.form{
+  width: 265px;
+  height: 551px;
+  background-color: #1e1e1e;
+  position: absolute;
+  top: 65px;
+  right: -265px;
+  z-index: 9;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 15px;
+}
+.form__title{
+  font-family: "Gotham Bold";
+  font-size: 30px;
+  color: whitesmoke;
+  letter-spacing: -1pt;
+  transform: scaleY(1.1);
+  margin-bottom: 33px;
+}
+.form__input{
+  display: flex;
+  flex-direction: column;
+  width: 76%;
+  margin: 10px 0
+}
+.form label{
+  color: white;
+  font-family: "Gotham book";
+  font-size: 11px;
+  text-align: left;
+}
+.form__input--container{
+  background-color: white;
+  height: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 8px 0;
+  padding-right: 10px;
+}
+.form__select--container{
+  background-color: white;
+  height: 30px;
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 8px 0;
+  padding-right: 10px;
+}
+.form__select--container select{
+  border: none;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  font-family: "Gotham Medium";
+  font-size: 10px;
+  color: #979fa4de;
+  padding-left: 5px;
+}
+.form__input--container input{
+  width: 85%;
+  border: none;
+  font-family: "Gotham Medium";
+  font-size: 10px;
+  outline: none;
+  color: #979fa4c4;;
+  padding-left: 5px;
+}
+.form__input--guests{
+  display: flex;
+  justify-content: space-between;
+}
+.form__text{
+  font-family: "Boodoni book";
+  color: #74787b;
+  font-size: 13px;
+  text-align: center;
+  margin: 10px 24px;
+  font-weight: lighter;
+  line-height: 15px;
+}
+.form__link{
+  color: #74787b;
+  text-decoration: none;
+  font-family: "Gotham Medium";
+  font-size: 13px;
+  font-weight: 200;
+  margin-top: 46px;
+}
+.header{
+  height: 740px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+.header__slideshow--container{
+  position: relative;
+  height: 80%;
+  overflow: hidden;
+  z-index: 2;
+}
+.header__slideshow--slides{
+  display: none;
+  position: relative;
+  z-index: 1;
+}
+.header__slideshow--slides__image{
+  width: 100%;
+}
+.slides__prev, .slides__next{
+  cursor: pointer;
+  position: absolute;
+  z-index: 6;
+  top: 45%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.slides__prev{
+  margin-left: 5%;
+}
+.slides__next{
+  margin-right: 5%;
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.slides__prev i, .slides__next i{
+  font-size: 65px;
+  color: white;
+}
+.slides__prev:hover, .slides__next:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+.header__title{
+  background-color: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  top: 73px;
+  width: 64%;
+  height: 73px;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: 'location logo .';
+  justify-items: center;
+  align-content: center;
+}
+.header__title--logo{
+  width: 150px;
+  height: 150px;
+  grid-area: logo
+}
+.header__title--location{
+  grid-area: location;
+  justify-self: flex-start;
+  align-self: center;
+  margin-left: 15%;
+  font-family: "Gotham Medium";
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.header__featured{
+  position: absolute;
+  z-index: 4;
+  top: 462px;
+  background-color: black;
+  width: 64%;
+  height: 278px;
+  padding: 0 8%;
+}
+.header__featured--divider{
+  color: white;
+    width: 70%;
+    margin: 0 auto 30px;
+    height: 3px;
+    background-color: white;
+}
+.header__featured--title{
+  font-family: "Boodoni book";
+  font-size: 25px;
+  font-weight: 200;
+  letter-spacing: 2px;
+  margin: 0;
+  text-transform: uppercase;
+  transform: scaleY(1.3);
+}
+.header__featured--subtitle{
+  font-size: 20px;
+  font-family: "Boodoni book";
+  margin: 0;
+  font-weight: 200;
+}
+.header__featured--content{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 17px;
+  margin-top: 25px;
+}
+.header__featured--title, .header__featured--subtitle, .header__featured--content{
+  color: white;
+  text-align: center;
+}
+.accommodations{
+  height: 370px;
+  background-color: #f1f2f2;
+  padding: 50px 0;
+}
+.accommodations__container{
+  display: flex;
+  justify-content: space-around;
+  width: 64%;
+  margin: 0 auto;
+}
+.accommodations__container--data{
+  padding-right: 45px;
+  padding-left: 2px;
+}
+.accommodations__container--category{
+  margin: 5px 0 20px -5px;
+  font-family: "Gotham book";
+  font-size: 8px;
+  font-weight: 200;
+  text-transform: uppercase;
+  text-align: center;
+  transform: scaleY(1.3);
+}
+.accommodations__container--title{
+  font-family: "Gotham Bold";
+  color: #979fa4;
+  text-transform: uppercase;
+  text-align: left;
+  font-size: 28px;
+  margin: 0;
+  padding: 10px 0;
+}
+.accommodations__container--content{
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 16px;
+  margin: 9px 0;
+}
+.button{
+  padding: 5px;
+  color: red;
+  box-sizing: content-box;
+  font-size: 10px;
+  font-weight: 900;
+  font-family: "Gotham book";
+  text-transform: uppercase;
+  border: 2px solid red;
+  border-radius: 2px;
+  margin: 18% 0 0 35%;
+  background-color: transparent;
+  cursor: pointer;
+}
+.accommodations__container--image{
+  width: 57%;
+  height: 270px;
+}
+.events__container{
+  width: 62%;
+  margin: 0 auto 5%;
+}
+.events__container--title{
+  text-align: center;
+  font-family: "Gotham book";
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 200;
+  margin: 4% 0;
+}
+.events__container--ads{
+  display: flex;
+  padding-right: 3%;
+  justify-content: space-between;
+}
+.events__container--ads__item{
+  width: 24%;
+  height: 129px;
+  margin: 0;
+}
+.ads__item--background{
+  position: relative;
+  width: 40%;
+  height: 32%;
+  background-color: #282930;
+  margin-top: -64%;;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ads__item--background span{
+  color: white;
+  font-weight: 900;
+  font-family: "Gotham bold";
+}
+.day{
+  font-size: 35px;
+  margin-right: 4px;
+}
+.month{
+  transform: rotate(180deg) scale(1.2);
+  font-size: 8px;
+  letter-spacing: 1pt;
+  writing-mode: vertical-lr;
+}
+.ads__item--img{
+  width: 100%;
+  height: 100%;
+}
+.footer{
+  background-color: #f1f2f2;
+  height: 30px;
+  padding: 0 20% 0 21.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer span{
+  font-family: "Gotham Medium";
+  font-size: 9px;
+  letter-spacing: 0.3pt;
+}
+.CTA__button{
+  margin: 12px 0;
+  outline: none;
+  font-size: 13px;
+}
+.overlay{
+  background-color: #5f615daf;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 7;
+  display: none;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+@media screen and (max-width: 1024px) {
+  .accommodations{
+    height: 430px;
+  }
+  .footer{
+    padding: 0 19% 0 18%
+  }
+  .form__button{
+    right: -28px;
+  }
+  .ads__item--background{
+    margin-top: -90%;
+    width: 45%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header{
+    height: 580px;
+  }
+  .header__featured{
+    top: 280px;
+    width: 75%;
+  }
+  .accommodations__container{
+    width: 75%;
+  }
+  .events__container{
+    width: 75%;
+  }
+  .footer{
+    padding: 0 10% 0 10%
+  }
+  .ads__item--background{
+    margin-top: -99%;
+    width: 50%;
+  }
+  .form__button{
+    right: -28px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .header{
+    height: 580px;
+  }
+  .header__featured{
+    top: 213px;
+    width: 90%;
+  }
+  .header__featured--title{
+    font-size: 20px;
+    height: 44px;
+    top: 40px;
+  }
+  .header__featured--content{
+    margin-top: 10px
+  }
+  .header__title{
+    height: 30px;
+    top: 40px
+  }
+  .form__button{
+    top: 65px;
+  }
+  .header__title--logo{
+    width: 70px;
+    height: 70px;
+  }
+  .accommodations{
+    height: 570px;
+    padding: 20px 0;
+  }
+  .accommodations__container--data {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .accommodations__container--image{
+    width: 100%;
+  }
+  .slides__prev, .slides__next{
+    top: 26%
+  }
+  .accommodations__container{
+    width: 90%;
+    flex-direction: column;
+  }
+  .accommodations__container--data .button{
+    margin: 5% 0 5% 35%
+  }
+  .events__container--ads__item{
+    width: 100%;
+  }
+  .events__container--ads {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 10px;
+  }
+  .events__container{
+    width: 90%;
+  }
+  .footer{
+    padding: 0 5% 0 5%
+  }
+  .ads__item--background{
+    margin-top: -71%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .header__featured--title{
+    font-size: 18px;
+  }
+  .header__featured--subtitle{
+    font-size: 16px;
+  }
+  .ads__item--background{
+    margin-top: -76%
+  }
+}
+@media screen and (max-width: 375px) {
+  .header__featured--title{
+    font-size: 18px;
+  }
+  .header__featured--subtitle{
+    font-size: 16px;
+  }
+  .ads__item--background{
+    margin-top: -81%;
+  }
+}
+@media screen and (max-width: 360px) {
+  .header__featured--title{
+    font-size: 17px;
+  }
+  .header__featured--subtitle{
+    font-size: 15px;
+  }
+  .ads__item--background{
+    margin-top: -84%
+  }
+  .header__featured{
+    top: 203px;
+  }
+}
